@@ -151,6 +151,9 @@
 </template>
 
 <script setup lang="ts">
+import type { AuthLogin } from "~/interfaces/auth.interface";
+import { useAuthStore } from "~/stores/auth";
+
 useHead({
   title: "Login",
 });
@@ -164,8 +167,34 @@ const form = ref({
   password: null,
 });
 
-const onSubmit = () => {
-  console.log(form);
+const onSubmit = async () => {
+  const authStore = useAuthStore();
+
+  try {
+    const body = {
+      username: "emilys",
+      password: "emilyspass",
+    };
+    const response = await $fetch<AuthLogin>(
+      "https://dummyjson.com/auth/login",
+      {
+        method: "POST",
+        body,
+      }
+    );
+
+    const token = useCookie("accessToken");
+    const refreshToken = useCookie("refreshToken");
+
+    token.value = response.accessToken;
+    refreshToken.value = response.refreshToken;
+    authStore.setUser(response);
+
+    navigateTo("/dashboard");
+    console.log(response);
+  } catch (error) {
+    console.log("Login failed", error);
+  }
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <header class="flex justify-between p-3 shadow-2xl">
+  <header class="flex justify-between p-3 shadow-2xl fixed top-0 left-0 w-full bg-white">
     <div class="font-bold text-2xl">
       <NuxtLink to="/">NUXT APP</NuxtLink>
     </div>

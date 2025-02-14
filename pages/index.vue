@@ -1,5 +1,5 @@
 <template>
-  <section class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+  <section class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-[1200px] mx-auto pt-4">
     <PostCard v-for="post in posts" :key="post.userId" :post="post" />
   </section>
 </template>

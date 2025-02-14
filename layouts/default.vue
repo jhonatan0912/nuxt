@@ -1,7 +1,9 @@
 <template>
-  <section class="max-w-screen max-h-screen flex flex-col overflow-hidden">
+  <section class="max-w-screen max-h-screen">
     <AppHeader />
-    <main class="p-3 flex-1 overflow-auto">
+
+
+    <main class="pt-14">
       <slot />
     </main>
     <AppFooter />
