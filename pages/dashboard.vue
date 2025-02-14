@@ -4,8 +4,10 @@
   </section>
 </template>
 
-<script>
-export default {};
+<script setup lang="ts">
+useHead({
+  title: "Dashboard",
+});
 </script>
 
 <style lang="scss" scoped></style>
